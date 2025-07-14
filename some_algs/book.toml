@@ -1,0 +1,5 @@
+[book]
+authors = ["drewrl3v"]
+language = "en"
+src = "src"
+title = "Some Algorithms"
