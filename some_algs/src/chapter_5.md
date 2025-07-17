@@ -184,7 +184,39 @@ print(subset_sum(arr=[2,5], target=9))
 </code></pre>
 </details>
 
+## Combinations (Recursive $O(kn^k)$)
 
+Given a positive integer `n` and `k` with `k` $\leq$ `n`, implement a function 
+called `choose` to return all the `k` combinations of the list of integers from `1` to `n`. Recall that the order of the combinations does not matter. Note, this will be our first example where we'll use a depth term and a for-loop.
 
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">
+# The problem is equivalent to the subset problem if k = n.
+# But if k is less than n, we need to limit the depth so that we construct
+# subsets of size no larger than 
+# But to ensure that the subsets have no less than k elements, we must run 
+# a for-loop to keep adding elements to our set until we reach the desired 
+# size, k.
+def choose(n: int, k: int) -> List[List[int]]:
+    ls = [i for i in range(1, n+1)]
+    res = []
+    tmp = []
+    def dfs(i: int, depth: int) -> None:
+        if depth == k:
+            res.append(tmp.copy())
+            return
+        else:
+            for j in range(i, n):
+                # add an element
+                tmp.append(ls[j])
+                # call the function again, we still need to add elements
+                dfs(j+1, depth+1)
+                tmp.pop()
+    dfs(0, 0)
+    return res
+print(choose(4,2))
+</code></pre>
+</details>
 
 
