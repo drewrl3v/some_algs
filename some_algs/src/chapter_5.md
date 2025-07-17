@@ -146,4 +146,45 @@ print(subsets([1,2,3]))
 </code></pre>
 </details>
 
+## Subset Target Sum (Recursive O($2^n$))
+
+Given an array of integers, `arr`, is there a subset that sums to a `target` integer? (Return True of False)
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def subset_sum(arr: List[int], target: int) -> bool:
+    def dfs(i: int, curr_sum: int) -> bool:
+        if i == len(arr):
+            return curr_sum == target
+        else:
+            return dfs(i+1, curr_sum + arr[i]) or dfs(i+1, curr_sum)
+    return dfs(0, 0)
+print(subset_sum(arr=[2,5,6,9], target=9))
+print(subset_sum(arr=[2,5], target=9))
+</code></pre>
+</details>
+
+<details>
+<summary>Alt Solution</summary>
+Note that in the previous solution we had curr_sum which if we increment to 
+the target we return True. A completely equivalent way of doing this is 
+to pass in target and decrement and if we hit 0 we return True.
+<pre><code class="language-python">
+def subset_sum(arr: List[int], target: int) -> bool:
+    def dfs(i: int, target: int) -> bool:
+        if i == len(arr):
+            return target == 0
+        else:
+            return dfs(i+1, target - arr[i]) or dfs(i+1, target)
+    return dfs(0, target)
+print(subset_sum(arr=[2,5,6,9], target=9))
+print(subset_sum(arr=[2,5], target=9))
+</code></pre>
+</details>
+
+
+
+
 
