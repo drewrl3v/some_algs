@@ -78,6 +78,7 @@ def subsets(nums: List[int]) -> List[List[int]]:
     dfs(0) # start the algorithm as index 0
 
     return res # dfs(0) has finished and res is populated with all the subsets of nums
+print(subsets([1,2,3]))
 </code></pre>
 </details>
 
@@ -88,4 +89,61 @@ go over the indices of decisions? **Note:** The for-loop in this case will
 be redundant, however it's useful in problems where instead of two decisions 
 you may have sever decisions you need to iterate through. To solve this problem take the above solution and in the `else` statement you can write 
 a trivial and redundat for loop.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def subsets(nums: List[int]) -> List[List[int]]:
+    res = []
+    subset = []
+
+    dfs(i: int) -> None:
+        if i == len(nums):
+            res.append(subset.copy())
+            return
+        else:
+            for j in range(i+1, i+2):
+                subset.append(nums[i])
+                dfs(j)
+                subset.pop() 
+                dfs(j) 
+    dfs(0)
+    return res
+print(subsets([1,2,3]))
+</code></pre>
+</details>
+
+## Subsets (Recursive $O(2^n)$) - For Loop & Depth
+
+Now in addition to our for-loop version of the DFS for subsets, you should 
+now define an equivalent versoin of the `dfs` function, namely: `dfs(i: int, depth: int)`. The depth starts at 0, and instead of using `if i == len(nums)` 
+as the stop condition, you must now use the `depth` parameter to determine 
+when to stop. **Note:** Once again, this is redundant, but this formulation 
+is helpful when for example we want a stop condition based on the depth. 
+For example produces all subsets of a set that have no more than 3 elements.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def subsets(nums: List[int]) -> List[List[int]]:
+    res = []
+    subset = []
+    dfs(i: int, depth: int) -> None:
+        if depth == len(nums):
+            res.append(subset.copy())
+            return
+        else:
+            for j in range(i+1, i+2):
+                subset.append(nums[i])
+                dfs(j, depth+1)
+                subset.pop() 
+                dfs(j, depth+1) 
+    dfs(0, 0)
+    return res
+print(subsets([1,2,3]))
+</code></pre>
+</details>
+
 
