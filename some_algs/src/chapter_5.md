@@ -50,3 +50,42 @@ Implicitly we traversed a tree of decisions:
 **Note:** This is not the full decision tree, I only showed a portion of it and 
 highlight the path traversed with `*`'s
 
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def subsets(nums: List[int]) -> List[List[int]]:
+    res = [] # the result is going to be list of subsets
+    subset = [] # a specific subset we'll construct
+
+    dfs(i: int) -> None:
+        ''' 
+        At index i, we make a choice to add nums[i] to subset or not
+        '''
+        if i == len(nums): # if you reached the end of nums
+            res.append(subset.copy())
+            return
+        else:              # you didn't exhause all your choices yet
+            subset.append(nums[i])
+            dfs(i+1)       # go to the next index: i+1
+
+            # this gets called once dfs(i+1) returned. 
+            # so undo adding nums[i]
+            subset.pop() 
+
+            # now we are on the path where we decided not to include nums[i]
+            dfs(i+1) 
+    dfs(0) # start the algorithm as index 0
+
+    return res # dfs(0) has finished and res is populated with all the subsets of nums
+</code></pre>
+</details>
+
+## Subsets (Recursive $O(2^n)$) - For Loop Version
+
+Take the above solution. In the else statement can you write a for-loop to 
+go over the indices of decisions? **Note:** The for-loop in this case will 
+be redundant, however it's useful in problems where instead of two decisions 
+you may have sever decisions you need to iterate through. To solve this problem take the above solution and in the `else` statement you can write 
+a trivial and redundat for loop.
+
