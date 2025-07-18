@@ -184,6 +184,71 @@ print(subset_sum(arr=[2,5], target=9))
 </code></pre>
 </details>
 
+## Target Sum
+
+Given and array of integers, `nums` and an integer `target`, you want to consider the weighted 
+sums:
+
+ $$\sum_{n \in nums} \pm n$$
+
+How many of these `+/-` weighted sums add up to `target`?
+
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">
+def target_sum(nums: List[int], target: int) -> int:
+    count = [0]
+    def dfs(i: int, cur_sum: int) -> None:
+        if i == len(nums):
+            if cur_sum == target:
+                count[0] += 1
+                return
+        else:
+            dfs(i+1, cur_sum + nums[i])
+            dfs(i+1, cur_sum - nums[i])
+    dfs(0,0)
+    return count[0]
+</code></pre>
+</details>
+
+
+
+## Combination Sum
+
+Given an array of distinct integers `nums` and a target integer `target`, return a list of all 
+unique combinations of `nums` where the chosen numbers sum to `target`. You may return the 
+combinations in any order. 
+
+**Note:** The same number may be chosen an unlimited number of times from 'nums'. 
+
+**Note:** Two combinations are unique if the frequency of at least one of the chosen numbers is 
+different.
+
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">
+def combination_sum(nums: List[int], target: int) -> List[List[int]]:
+    res = []
+    tmp = []
+    def dfs(i: int, cur_sum: int) -> None:
+        if cur_sum == target:
+            res.append(tmp.copy())
+            return
+        if i == len(nums) or cur_sum > target:
+            return
+        tmp.append(nums[i])
+        dfs(i, cur_sum + nums[i])
+        tmp.pop()
+        dfs(i+1, cur_sum)
+    dfs(0,0)
+    return res
+
+print(combination_sum([2,3,6,7], 7))
+</code></pre>
+</details>
+
+
+
 ## Combinations (Recursive $O(kn^k)$)
 
 Given a positive integer `n` and `k` with `k` $\leq$ `n`, implement a function 
@@ -218,5 +283,11 @@ def choose(n: int, k: int) -> List[List[int]]:
 print(choose(4,2))
 </code></pre>
 </details>
+
+
+
+
+
+
 
 
