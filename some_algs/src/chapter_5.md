@@ -247,6 +247,40 @@ print(combination_sum([2,3,6,7], 7))
 </code></pre>
 </details>
 
+## Combination Sum II
+
+Given an array of (not necessarily distinct) integers `nums` and a target integer `target`, return a list of all unique combinations of `nums` where the chosen numbers sum to `target`. You may return the combinations in any order.
+
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">
+def combination_sum(nums: List[int], target: int) -> List[List[int]]:
+    nums.sort()
+    res = []
+    tmp = []
+    def dfs(i: int, cur_sum: int) -> None:
+        if cur_sum == target and tmp not in res:
+            res.append(tmp.copy())
+            return
+        if i == len(nums) or cur_sum > target:
+            return
+        tmp.append(nums[i])
+        dfs(i, cur_sum + nums[i])
+        tmp.pop()
+        dfs(i+1, cur_sum)
+    dfs(0,0)
+    return res
+
+print(combination_sum([2,3,6,7], 7))
+</code></pre>
+</details>
+
+
+
+
+
+
+
 
 
 ## Combinations (Recursive $O(kn^k)$)
