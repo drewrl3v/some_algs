@@ -2,7 +2,7 @@
 
 ## Subsets (Recursive $O(2^n)$)
 
-Give a list of integers, `nums`, return the list of all subsets of `nums`.
+Give a list of distinct integers, `nums`, return the list of all subsets of `nums`.
 
 The basic idea for most Depth First Search Problems is as follows:
 
@@ -145,6 +145,38 @@ def subsets(nums: List[int]) -> List[List[int]]:
 print(subsets([1,2,3]))
 </code></pre>
 </details>
+
+## Subsets II
+
+Give a list of (not necessarily integers), `nums`, return the list of all subsets of `nums`.
+Your solution may not contain duplicate subsets.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def subsets_no_dup(nums: List[int]) -> List[List[int]]:
+    nums.sort()
+    res = []
+    tmp = []
+    def dfs(i: int) -> None:
+    if i == len(nums):
+        if tmp not in res:
+            res.append(tmp.copy())
+            return
+        else:
+            return
+    else:
+        tmp.append(nums[i])
+        dfs(i+1)
+        tmp.pop()
+        dfs(i+1)
+    dfs(0)
+    return res
+</code></pre>
+</details>
+
+
 
 ## Subset Target Sum (Recursive O($2^n$))
 
