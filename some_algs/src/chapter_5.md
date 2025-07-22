@@ -274,7 +274,6 @@ def combination_sum(nums: List[int], target: int) -> List[List[int]]:
         dfs(i+1, cur_sum)
     dfs(0,0)
     return res
-
 print(combination_sum([2,3,6,7], 7))
 </code></pre>
 </details>
@@ -302,7 +301,6 @@ def combination_sum(nums: List[int], target: int) -> List[List[int]]:
         dfs(i+1, cur_sum)
     dfs(0,0)
     return res
-
 print(combination_sum([2,3,6,7], 7))
 </code></pre>
 </details>
