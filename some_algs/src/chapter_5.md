@@ -305,14 +305,6 @@ print(combination_sum([2,3,6,7], 7))
 </code></pre>
 </details>
 
-
-
-
-
-
-
-
-
 ## Combinations (Recursive $O(kn^k)$)
 
 Given a positive integer `n` and `k` with `k` $\leq$ `n`, implement a function 
@@ -348,6 +340,59 @@ print(choose(4,2))
 </code></pre>
 </details>
 
+## Beautiful Subsets (Construct Them)
+You are given an array `nums` of positive integers and a positive integer `k`. 
+A subset of `nums`is **beautiful** if it does not contain two integers with an 
+absolute difference equal to `k`. 
+
+Return the number of non-empty beautiful subsets of the array `nums`.
+
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">
+def beautiful_subsets(nums: List[int], k: int) -> List[List[int]]:
+    # helper function
+    def absolute_check(arr: List[int], element: int, k: int) -> bool:
+        for a in arr:
+            if abs(a - element) == k:
+                return False
+        return True
+    # The DFS
+    res = []
+    tmp = []
+    def dfs(i: int):
+        if i == len(nums):
+            if tmp == []:
+                return
+            else:
+                res.append(tmp.copy())
+                return
+        else:
+            if absolute_check(tmp, nums[i], k):
+                tmp.append(nums[i])
+                dfs(i+1)
+                tmp.pop()
+                dfs(i+1)
+            else:
+                dfs(i+1)
+    dfs(0)
+    return res
+</code></pre>
+</details>
+
+## Beautiful Subsets (Count Them)
+You are given an array `nums` of positive integers and a positive integer `k`. 
+A subset of `nums`is **beautiful** if it does not contain two integers with an 
+absolute difference equal to `k`. 
+
+Return the number of non-empty beautiful subsets of the array `nums`.
+
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">
+# TODO
+</code></pre>
+</details>
 
 
 
