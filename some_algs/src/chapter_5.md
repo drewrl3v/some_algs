@@ -391,6 +391,33 @@ Return the number of non-empty beautiful subsets of the array `nums`.
 <summary>Solution</summary>
 <pre><code class="language-python">
 # TODO
+def count_beautiful_subsets(nums: List[int], k: int) -> int:
+    # helper function
+    def absolute_check(arr: List[int], element: int, k: int):
+        for a in arr:
+            if abs(a - element) == k:
+                return False
+        return True
+    # The DFS
+    tmp = []
+    cur_count = [0]
+    def dfs(i: int) -> None:
+        if i == len(nums):
+            if tmp == []:
+                return
+            else:
+                cur_count[0] += 1
+                return
+        else:
+            if absolute_check(tmp, nums[i], k):
+                tmp.append(nums[i])
+                dfs(i+1)
+                tmp.pop()
+                dfs(i+1)
+            else:
+                dfs(i+1)
+    dfs(0)
+    return cur_count[0]
 </code></pre>
 </details>
 
