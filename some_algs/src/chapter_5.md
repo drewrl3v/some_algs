@@ -421,6 +421,59 @@ def count_beautiful_subsets(nums: List[int], k: int) -> int:
 </code></pre>
 </details>
 
+
+## Count Unique Paths
+
+Count the unique paths from the top left to the bottom right of a given `grid` of 0's and 1's. 
+A single path may only move along 0`s and can't visit the same cell more than once. There is 
+always garaunteed to be at least one path from top-left to bottom-right.
+
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">
+
+grid = [[0,0,0,0],
+        [1,1,0,0],
+        [0,0,0,1],
+        [0,1,0,0]]
+
+def count_paths(grid: List[List[int]]) -> int:
+
+    #count = [0]
+    ROWS, COLS = len(grid), len(grid[0])
+    path = set()
+    def dfs(r: int, c: int) -> int:
+        if (min(r,c) < 1 or
+            r >= ROWS or
+            c >= COLS or
+            (r,c) in path or
+            grid[r][c] == 1
+        ):
+            return 0
+     
+        if (r,c) == (ROWS-1, COLS-1):
+            return 1
+
+       
+        visit.add((r,c))
+        count = 0
+        count += dfs(r+1, c)
+        count += dfs(r-1, c)
+        count += dfs(r, c+1)
+        count += dfs(r, c-1)
+        
+        visit.remove((r,c))
+        return count
+
+    return dfs(0,0)
+print(count_paths(grid))
+
+</code></pre>
+</details>
+
+
+
+
 ## Word Search
 
 Given an m-by-n grid of characters `board`, return `True` if `word` exists in the grid. 
