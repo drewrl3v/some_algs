@@ -390,7 +390,6 @@ Return the number of non-empty beautiful subsets of the array `nums`.
 <details>
 <summary>Solution</summary>
 <pre><code class="language-python">
-# TODO
 def count_beautiful_subsets(nums: List[int], k: int) -> int:
     # helper function
     def absolute_check(arr: List[int], element: int, k: int):
@@ -420,6 +419,16 @@ def count_beautiful_subsets(nums: List[int], k: int) -> int:
     return cur_count[0]
 </code></pre>
 </details>
+
+## Palindrome Partitioning
+
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">
+# TODO
+</code></pre>
+</details>
+
 
 
 ## Count Unique Paths
