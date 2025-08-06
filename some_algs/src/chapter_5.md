@@ -78,6 +78,7 @@ def subsets(nums: List[int]) -> List[List[int]]:
     dfs(0) # start the algorithm as index 0
 
     return res # dfs(0) has finished and res is populated with all the subsets of nums
+    
 print(subsets([1,2,3]))
 </code></pre>
 </details>
@@ -110,6 +111,7 @@ def subsets(nums: List[int]) -> List[List[int]]:
                 dfs(j) 
     dfs(0)
     return res
+
 print(subsets([1,2,3]))
 </code></pre>
 </details>
@@ -142,6 +144,7 @@ def subsets(nums: List[int]) -> List[List[int]]:
                 dfs(j, depth+1) 
     dfs(0, 0)
     return res
+
 print(subsets([1,2,3]))
 </code></pre>
 </details>
@@ -193,6 +196,7 @@ def subset_sum(arr: List[int], target: int) -> bool:
         else:
             return dfs(i+1, curr_sum + arr[i]) or dfs(i+1, curr_sum)
     return dfs(0, 0)
+
 print(subset_sum(arr=[2,5,6,9], target=9))
 print(subset_sum(arr=[2,5], target=9))
 </code></pre>
@@ -200,9 +204,11 @@ print(subset_sum(arr=[2,5], target=9))
 
 <details>
 <summary>Alt Solution</summary>
+
 Note that in the previous solution we had curr_sum which if we increment to 
 the target we return True. A completely equivalent way of doing this is 
 to pass in target and decrement and if we hit 0 we return True.
+
 <pre><code class="language-python">
 def subset_sum(arr: List[int], target: int) -> bool:
     def dfs(i: int, target: int) -> bool:
@@ -211,6 +217,7 @@ def subset_sum(arr: List[int], target: int) -> bool:
         else:
             return dfs(i+1, target - arr[i]) or dfs(i+1, target)
     return dfs(0, target)
+
 print(subset_sum(arr=[2,5,6,9], target=9))
 print(subset_sum(arr=[2,5], target=9))
 </code></pre>
@@ -258,6 +265,7 @@ different.
 
 <details>
 <summary>Solution</summary>
+
 <pre><code class="language-python">
 def combination_sum(nums: List[int], target: int) -> List[List[int]]:
     res = []
@@ -274,6 +282,7 @@ def combination_sum(nums: List[int], target: int) -> List[List[int]]:
         dfs(i+1, cur_sum)
     dfs(0,0)
     return res
+
 print(combination_sum([2,3,6,7], 7))
 </code></pre>
 </details>
@@ -284,6 +293,7 @@ Given an array of (not necessarily distinct) integers `nums` and a target intege
 
 <details>
 <summary>Solution</summary>
+
 <pre><code class="language-python">
 def combination_sum(nums: List[int], target: int) -> List[List[int]]:
     nums.sort()
@@ -301,6 +311,7 @@ def combination_sum(nums: List[int], target: int) -> List[List[int]]:
         dfs(i+1, cur_sum)
     dfs(0,0)
     return res
+
 print(combination_sum([2,3,6,7], 7))
 </code></pre>
 </details>
@@ -312,6 +323,7 @@ called `choose` to return all the `k` combinations of the list of integers from 
 
 <details>
 <summary>Solution</summary>
+
 <pre><code class="language-python">
 # The problem is equivalent to the subset problem if k = n.
 # But if k is less than n, we need to limit the depth so that we construct
@@ -336,6 +348,7 @@ def choose(n: int, k: int) -> List[List[int]]:
                 tmp.pop()
     dfs(0, 0)
     return res
+
 print(choose(4,2))
 </code></pre>
 </details>
@@ -349,6 +362,7 @@ Return the number of non-empty beautiful subsets of the array `nums`.
 
 <details>
 <summary>Solution</summary>
+
 <pre><code class="language-python">
 def beautiful_subsets(nums: List[int], k: int) -> List[List[int]]:
     # helper function
@@ -389,6 +403,7 @@ Return the number of non-empty beautiful subsets of the array `nums`.
 
 <details>
 <summary>Solution</summary>
+
 <pre><code class="language-python">
 def count_beautiful_subsets(nums: List[int], k: int) -> int:
     # helper function
@@ -424,6 +439,7 @@ def count_beautiful_subsets(nums: List[int], k: int) -> int:
 
 <details>
 <summary>Solution</summary>
+
 <pre><code class="language-python">
 # TODO
 </code></pre>
@@ -439,6 +455,7 @@ always garaunteed to be at least one path from top-left to bottom-right.
 
 <details>
 <summary>Solution</summary>
+
 <pre><code class="language-python">
 
 grid = [[0,0,0,0],
@@ -490,6 +507,7 @@ i.e. by traversing adjacent cells you're able to form `word`.
 
 <details>
 <summary>Solution</summary>
+
 <pre><code class="language-python">
 def word_search(board: List[List[int]], word: str) -> bool:
     ROWS, COLS = len(board), len(board[0])
