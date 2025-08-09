@@ -52,3 +52,26 @@ p = [1,5,8,9,10,17,17,20,24,30]
 print(memoized_cut_rod(n=4, p=p))
 </code></pre>
 </details>
+
+## Cut Rod (Bottom-Up)
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def bottom_up_cut_rod(n: int, p: List[int]) -> int:
+    computed = [-1 * float('inf')] * (n+1)
+    computed[0] = 0
+    for j in range(1, n+1):
+        best = -1 * float('inf')
+        for i in range(1, j+1):
+            best = max(best, p[i-1] + computed[j-i])
+        computed[j] = best
+    return computed[n]
+
+p = [1,5,8,9,10,17,17,20,24,30]
+print(bottom_up_cut_rod(n=4, p=p))
+</code></pre>
+</details>
+
+
