@@ -73,6 +73,8 @@ $=\frac{(n+1)(n+2)}{2}$ as desired.
 
 **What you want to prove:** We want to show that the inductive hypothesis implies that $T$ holds for $n$
 
+`Example:`
+
 We won't prove anything here, but we demonstrate a familiar recurrence that requires more than a single base case:
 
 The fibonacci numbers are given by: $0,1,1,2,3,5,8,13,\dots$
@@ -92,7 +94,9 @@ $f_n = f_{n-1} + f_{n-2}$
 
 **What you want to prove:** We want to show that the inductive hypothesis implies that $T$ holds for $n$
 
-Let's consider powers of $2$. For example computing: $2^3$, $2^8$, ect. 
+`Example:`
+
+Let's consider how we compute powers of $2$. For example computing: $2^3$, $2^8$, ect. 
 
 As you may recall, the exponent informs the reader how many times they must multiply 2 times itself, so naturally you would think that to compute 
 
@@ -102,8 +106,9 @@ Let $T$ be the statement that $2^n$ can be computed by knowing how to compute $2
 
 Consider $2^n$. The base case for us will be $n=1$, in which case $2^1 = 2 \times 1 = 2 \times (2^0 \times 2^0) = 2 \times (2^{1//2} \times 2^{1//2})$. 
 
-Now assume we know how to compute $2^n$ given $n//2$ for $n>1$. Now we consider
-$2^{n+1}$. Notice that this is equivalent to:
+The inductive hypothes is to assume we know how to compute $2^n$ given $n//2$ for $n>1$. 
+
+Now we consider $2^{n+1}$. Notice that this is equivalent to:
 
 $2^1 \times 2^n$, then by the induction hypothesis, we know how to compute 2^n based on knowing how to compute $2^{n//2}$
 (i.e. $2^n = 2^{n//2} \times 2^{n//2}$).
