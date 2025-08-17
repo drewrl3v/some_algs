@@ -6,7 +6,7 @@
 You have a rod of length `n` and a list of prices `p` indicating for length `i`
 the price `p[i]` you may sell a rod of length `i` at. Find the best way to 
 cut the rod so that you maximize your revenue. Report only the max possible 
-revenue.
+revenue. (Use Recursion)
 
 <details>
 <summary>Solution</summary>
@@ -27,6 +27,12 @@ print(cut_rod(n=4, p=p))
 </details>
 
 ## Cut Rod (Top-Down)
+
+Again, you have a rod of length `n` and a list of prices `p` indicating for length `i`
+the price `p[i]` you may sell a rod of length `i` at. Find the best way to 
+cut the rod so that you maximize your revenue. Report only the max possible 
+revenue. (Use Top-Down Dynamic Programming)
+
 
 <details>
 <summary>Solution</summary>
@@ -54,6 +60,13 @@ print(memoized_cut_rod(n=4, p=p))
 </details>
 
 ## Cut Rod (Bottom-Up)
+
+One more time! You have a rod of length `n` and a list of prices `p` indicating for length `i`
+the price `p[i]` you may sell a rod of length `i` at. Find the best way to 
+cut the rod so that you maximize your revenue. Report only the max possible 
+revenue. (Use Bottom-Up Dynamic Programming)
+
+
 
 <details>
 <summary>Solution</summary>
