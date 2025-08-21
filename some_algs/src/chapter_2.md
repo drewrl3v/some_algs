@@ -184,6 +184,86 @@ print(nums)
 </details>
 
 
+## Base-2 Integer-Logarithm (Log Recursive)
+
+Write a recursive function that computes the base 2 log of an integer:
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def rec_log2(number: int) -> int:
+    if number == 1:
+        return 0
+    else:
+        return 1 + rec_log2(number // 2)
+
+print(
+    rec_log2(100)
+)
+
+</code></pre>
+</details>
+
+## Base-2 Integer-Logarithm (Log Iterative)
+
+Write an iterative function that computes the base 2 log of an integer:
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def iter_log2(number: int) -> int:
+    res = 0
+    while number > 1:
+        res += 1
+        number = number // 2
+    return res
+
+print(
+    iter_log2(100)
+)
+
+</code></pre>
+</details>
+
+## Determine If Palindrome (Linear Recursive)
+
+Implement a recursive function to determine if a string is a palindrome or not.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def rec_is_palindrome(word: str, left: int, right: int) -> bool:
+    if left == right:
+        return True
+    else:
+        current_check = (word[left] == word[right])
+        return current_check and rec_is_palindrome(word, left+1, right-1)
+
+word1 = "racecar"
+word2 = "a"
+word3 = "hello"
+print(
+    rec_is_palindrome(word1, 0, len(word1)-1),
+    rec_is_palindrome(word2, 0, len(word2)-1),
+    rec_is_palindrome(word3, 0, len(word3)-1),
+
+)
+
+</code></pre>
+</details>
+
+
+
+
+
+
+
+
+
+
 
 
 
