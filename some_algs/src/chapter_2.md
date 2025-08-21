@@ -255,6 +255,37 @@ print(
 </code></pre>
 </details>
 
+Note we can have another variation of this recursive function that returns False, the moment
+we see that the word[left] and word[right] don't match.
+
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def rec_is_palindrome(word: str, left: int, right: int) -> bool:
+    if left == right:
+        return True
+    else:
+        if word[left] != word[right]:
+            return False
+        return rec_is_palindrome(word, left+1, right-1)
+
+word1 = "racecar"
+word2 = "a"
+word3 = "hello"
+print(
+    rec_is_palindrome(word1, 0, len(word1)-1),
+    rec_is_palindrome(word2, 0, len(word2)-1),
+    rec_is_palindrome(word3, 0, len(word3)-1),
+
+)
+
+</code></pre>
+</details>
+
+
+
 
 
 
