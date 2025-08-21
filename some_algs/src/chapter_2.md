@@ -284,6 +284,40 @@ print(
 </code></pre>
 </details>
 
+## Determine If Palindrome (Linear Iterative)
+
+Implement an iterative function to determine if a string is a palindrome or not.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def iter_is_palindrome(word: str) -> bool:
+    left, right = 0, len(word)-1
+    while left < right:
+        if word[left] != word[right]:
+            return False
+        left += 1
+        right -=1
+    return True
+
+
+word1 = "racecar"
+word2 = "a"
+word3 = "hello"
+print(
+    iter_is_palindrome(word1, 0, len(word1)-1),
+    iter_is_palindrome(word2, 0, len(word2)-1),
+    iter_is_palindrome(word3, 0, len(word3)-1),
+
+)
+
+</code></pre>
+</details>
+
+
+
+
 
 
 
