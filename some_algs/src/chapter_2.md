@@ -47,4 +47,83 @@ print(
 </code></pre>
 </details>
 
+## Length of List (Linear Recursive)
+
+Write a recursive function that computes the length of a list.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def rec_len(nums: List) -> int:
+    if nums == []:
+        return 0
+    else:
+        return 1 + rec_len(nums[1:])
+
+print(
+    rec_len([1,2,3])
+)
+</code></pre>
+</details>
+
+
+## Length of List (Linear Iterative)
+
+Write an iterative function that computes the length of a list.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def iter_len(nums: List) -> int:
+    res = 0
+    if nums == []:
+        return res
+
+    for _ in nums:
+        res += 1
+    return res
+
+print(
+    iter_len([1,2,3])
+)
+</code></pre>
+</details>
+
+## Multiply Two Positive Integers (Linear Recursive)
+
+Give two positive integers, implement a recursive function that computes their product.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def rec_mul(x: int, y: int) -> int:
+    if y == 1:
+        return x
+    else:
+        return x + rec_mul(x, y-1)
+
+print(
+    rec_mul(3,4),
+    rec_mul(4,3),
+
+)
+
+</code></pre>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
