@@ -114,6 +114,80 @@ print(
 </code></pre>
 </details>
 
+## Multiply Two Positive Integers (Linear Iterative)
+
+Give two positive integers, implement an iterative function that computes their product.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def iter_mul(x: int, y: int) -> int:
+    res = 0
+    for _ in range(y):
+        res += x
+    return res
+
+print(
+    iter_mul(3,4),
+    iter_mul(4,3),
+)
+</code></pre>
+</details>
+
+## Reversing A Sequence (Linear Recursive)
+
+Write a recursive function that takes a list of integers, `nums`, and reverses the list.
+Mutate the list, don't return a new list.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def rec_reverse(nums: List[int], left: int, right: int) -> None:
+    if left == right:
+        return
+    else:
+        nums[left], nums[right] = nums[right], nums[left]
+        return rec_reverse(nums, left+1, right-1)
+
+nums = [1,2,3]
+print(nums)
+rec_reverse(nums,0, len(nums)-1)
+print(nums)
+
+</code></pre>
+</details>
+
+
+## Reversing A Sequence (Linear Iterative)
+
+Write an iterative function that takes a list of integers, `nums`, and reverses the list.
+Mutate the list, don't return a new list.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def iter_reverse(nums: List[int]) -> None:
+    left, right = 0, len(nums)-1
+    while left < right:
+        nums[left], nums[right] = nums[right], nums[left]
+    return
+
+nums = [1,2,3]
+print(nums)
+iter_reverse(nums,0, len(nums)-1)
+print(nums)
+
+</code></pre>
+</details>
+
+
+
+
+
+
 
 
 
