@@ -316,6 +316,55 @@ print(
 </details>
 
 
+## Consonants And Vowels (Linear Recursive)
+
+Determine if a string has more vowels than consonants.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+vowels = "aeiou"
+def more_vowels_than_consonants(s: str, 
+                                cur_index: int, 
+                                cons_count: int, 
+                                vows_count: int) -> bool:
+    if cur_index == 0:
+        if s[cur_index] in vowels:
+            vows_count += 1
+        else:
+            cons_count += 1
+
+        return vows_count > cons_count
+    else:
+        if s[cur_index] in vowels:
+            vows_count += 1
+        else:
+            cons_count += 1
+
+        return more_vowels_than_consonants(s, 
+                                            cur_index-1, 
+                                            cons_count, 
+                                            vows_count)
+
+
+word1 = "hello"
+word2 = "see"
+print(
+    more_vowels_than_consonants(word1, 
+                                cur_index = len(word1)-1, 
+                                cons_count=0, 
+                                vows_count=0),
+    more_vowels_than_consonants(word2, 
+                                cur_index = len(word2)-1, 
+                                cons_count=0, 
+                                vows_count=0),
+)
+</code></pre>
+</details>
+
+
+
 
 
 
