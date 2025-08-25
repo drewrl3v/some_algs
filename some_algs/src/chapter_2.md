@@ -391,6 +391,21 @@ print(
 </code></pre>
 </details>
 
+## Even Before Odd (Recursive)
+
+Write a recursive function that rearranges a sequence of integer values so that all the even
+values appear before all the odd values.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+# TODO
+
+
+</code></pre>
+</details>
+
 
 
 
