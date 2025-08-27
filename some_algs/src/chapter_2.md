@@ -447,6 +447,46 @@ print(nums)
 </details>
 
 
+## Even Before Odd (Iterative)
+
+Write an iterative function that rearranges a sequence of integer values so that all the even
+values appear before all the odd values.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def iter_even_before_odd(nums: List[int]) -> None:
+    f, s = 0, 1
+    while s < len(nums):
+        if nums[f] % 2 == 1 and nums[s] % 2 == 0:
+            nums[f], nums[s] = nums[s], nums[f]
+            f += 1
+            s += 1
+        elif nums[f] % 2 == 1 and nums[s] % 2 == 1:
+            s += 1
+        elif nums[f] % 2 == 0 and nums[s] % 2 == 1:
+            f += 1
+            s += 1
+        else: # both are even
+            f += 1
+            s += 1
+
+nums = [1,2,3]
+print(nums)
+iter_even_before_odd(nums)
+print(nums)
+
+nums = [1,3,2,4]
+print(nums)
+iter_even_before_odd(nums)
+print(nums)
+</code></pre>
+</details>
+
+
+
+
 
 
 
