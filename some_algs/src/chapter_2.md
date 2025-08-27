@@ -399,10 +399,50 @@ values appear before all the odd values.
 <details>
 <summary>Solution</summary>
 
+The trick is to keep track of two indices. Denote f the first index
+and s the second index. If you encounter an odd element, hold the f index
+and keep advancing the s index until you see an even number. Once you see 
+an even number, swap the elements and advance the first index and the second
+index. See below with the list [1,3,2,4]:
+
+```
+1 3 2 4
+f s
+f   s 
+2 3 1 4
+  f   s
+2 4 1 3
+    f s -> Done
+
+the cases to consider is when when the corresponding elements num[f], num[s]
+are the following (even, even), (eve, odd), (odd, even), (odd, odd). How you 
+advance the pointer in each case.
+```
+
 <pre><code class="language-python">
-# TODO
+def recur_even_before_odd(nums: List[int], f: int, s: int) -> None:
+    if s == len(nums):
+        return 
+    else:
+        if nums[f] % 2 == 1 and nums[s] % 2 == 0:
+            nums[f], nums[s] = nums[s], nums[f]
+            recur_even_before_odd(nums, f+1, s+1)
+        elif nums[f] % 2 == 1 and nums[s] % 2 == 1:
+            recur_even_before_odd(nums, f, s+1)
+        elif nums[f] % 2 == 0 and nums[s] % 2 == 1:
+            recur_even_before_odd(nums, f+1, s+1)
+        else: # both are even
+            recur_even_before_odd(nums, f+1, s+1)
 
+nums = [1,2,3]
+print(nums)
+recur_even_before_odd(nums, 0, 1)
+print(nums)
 
+nums = [1,3,2,4]
+print(nums)
+recur_even_before_odd(nums, 0, 1)
+print(nums)
 </code></pre>
 </details>
 
