@@ -17,7 +17,7 @@ When we remove a plate from the top of the stack we `pop` it off the stack.
 
 We will show how to solve a variety of problems using stacks.
 
-# Recursively Remove Elements From A Stack
+## Recursively Remove Elements From A Stack
 
 You are given a stack of integers called `nums`. Write a function 
 that recursively removes all the elements from `nums`.
@@ -40,6 +40,31 @@ print(
 )
 </code></pre>
 </details>
+
+## Iteratively Remove Elements From A Stack
+
+You are given a stack of integers called `nums`. Write a function 
+that iteratively removes all the elements from `nums`.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def iter_remove_from_stack(nums: List[int]) -> None:
+    while nums:
+        nums.pop()
+
+nums = [3,4,5,1]
+print(nums)
+
+iter_remove_from_stack(nums)
+print(
+    nums
+)
+</code></pre>
+</details>
+
+
 
 
 
