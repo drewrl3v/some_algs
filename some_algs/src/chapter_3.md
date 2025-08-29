@@ -124,10 +124,56 @@ def is_valid(s: str) -> bool:
             else:
                 stack.pop()
     return not stack # if the stack is empty, then the string was balanced.
+
+print(
+    is_valid('()'), '\n',
+    is_valid('())'), '\n',
+    )
 </code></pre>
 </details>
 
 
+## Convert Decimal To Binary
+
+Recall that to convert a decimal number to binary you:
+
+1. Divide the number by 2 and record the remainder.
+2. Keep the integer part of the divided number and go back to step 2.
+3. Repeat this process until the number is 0.
+
+Here is a simple example, consider the decimal number 10:
+
+```
+Remainders:            0     1     0     1
+                10 --> 5 --> 2 --> 1 --> 0
+```
+
+So the binary representation of 10 is (when you read the remainders from right-to-left) 1010.
+The trick here is that this problem is basically the base 2 logrithm from the recursion 
+chapter. Also for ease, we will represent the binary number as a string.
+
+<pre><code class="language-python">
+def decimal_to_binary(n: int) -> str:
+    remainder_stack = []
+    while n > 0:
+        remainder = n % 2
+        remainder_stack.append(str(remainder))
+        n = n // 2
+
+    # the answer is in the remainder stack, but it's reversed
+    # so we should reverse the stack (an earlier problem in this section)
+    ans = []
+    while remainder_stack:
+        x = remainder_stack.pop()
+        ans.append(x)
+    
+    return ''.join(ans) # fancy way to concatenate all the characters in the ans list.
+
+print(
+    decimal_to_binary(42)
+)
+</code></pre>
+</details>
 
 
 
