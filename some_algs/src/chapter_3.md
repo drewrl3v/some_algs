@@ -64,6 +64,34 @@ print(
 </code></pre>
 </details>
 
+Okay from here on out, I won't provide recursive and iterative implementations. We just use whatever is natural for the problem
+
+## Reverse A Stack
+
+You have a stack of integers, `nums`. Write a function that 
+reverses the order of `nums`. You may use and return an auxillary stack
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def reverse_stack(nums: List[int]) -> List[int]:
+    tmp_stack = []
+    while nums:
+        x = nums.pop()
+        tmp_stack.append(x)
+    return tmp_stack
+
+nums = [1,2,3,4]
+print(nums)
+print(reverse_stack(nums))
+print(nums)
+    
+</code></pre>
+</details>
+
+
+
 
 
 
