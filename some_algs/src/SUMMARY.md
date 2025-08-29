@@ -1,7 +1,7 @@
 # Summary
 
 - [About](./chapter_0.md)
-- [induction](./chapter_1.md)
+- [Induction](./chapter_1.md)
 - [Recursion](./chapter_2.md)
 - [Stacks](./chapter_3.md)
 - [Chapter 4](./chapter_4.md)
