@@ -22,3 +22,24 @@ We will show how to solve a variety of problems using stacks.
 You are given a stack of integers called `nums`. Write a function 
 that recursively removes all the elements from `nums`.
 
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def rec_remove_from_stack(nums: List[int]) -> None:
+    if nums: # returns True if nums is not empty
+        nums.pop() # remove plate from top of stack
+        return rec_remove_from_stack(nums)
+
+nums = [3,4,5,1]
+print(nums)
+
+rec_remove_from_stack(nums)
+print(
+    nums
+)
+</code></pre>
+</details>
+
+
+
