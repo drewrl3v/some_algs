@@ -152,6 +152,9 @@ So the binary representation of 10 is (when you read the remainders from right-t
 The trick here is that this problem is basically the base 2 logrithm from the recursion 
 chapter. Also for ease, we will represent the binary number as a string.
 
+<details>
+<summary>Solution</summary>
+
 <pre><code class="language-python">
 def decimal_to_binary(n: int) -> str:
     remainder_stack = []
