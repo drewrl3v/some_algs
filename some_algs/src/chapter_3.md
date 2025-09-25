@@ -179,4 +179,33 @@ print(
 </details>
 
 
+## Base Converter
+
+`TODO: Provide more details about bases: base 2, hexidecimal, ect.`
+Take an decimal integer and convert it to any of the standard bases.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def base_convert(dec_number: int, base: int) -> str:
+    digits = "0123456789ABCDEF"
+    remainder_stack = []
+    while dec_number > 0:
+        rem = dec_number % base
+        remainder_stack.append(rem)
+        dec_number = dec_number // base
+
+    ans = []
+    while remainder_stack:
+        ans.append(digits[remainder_stack.pop()])
+    return ''.join(ans)
+
+print(base_convert(42, 2))
+print(base_convert(42, 16))
+</code></pre>
+</details>
+
+
+
 
