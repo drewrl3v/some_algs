@@ -42,3 +42,28 @@ ls.next      = ListNode(1)
 ls.next.next = ListNode(2)
 print(ls.next.next.val)
 ```
+
+## Search A Linked List
+
+Given a list `L` (you may assume the head of the list) and a `key`, determine the node in the linked list that contains the `key`. For simplicity we always 
+assume the key is somewhere in the list.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def search_list(L: ListNode, key: int) -> ListNode:
+    while L and L.val != key:
+        L = L.next
+    return L
+
+ls = ListNode(0)
+ls.next = ListNode(1)
+ls.next.next = ListNode(2)
+found = search_list(ls, 2)
+print(found.val)
+</code></pre>
+</details>
+
+   
+
