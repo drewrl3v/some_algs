@@ -65,5 +65,33 @@ print(found.val)
 </code></pre>
 </details>
 
+## Insert New Node After A Given Node
+
+Given a `node` of a linked list, insert a `new_node` after this node.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def insert_after(node: ListNode, new_node: ListNode) -> None:
+    new_node.next = node.next
+    node.next = new_node
+
+ls = ListNode(0)
+ls.next = ListNode(1)
+ls.next.next = ListNode(2)
+
+insert_after(ls.next, ListNode(4))
+print(
+    ls.val,
+    ls.next.val,
+    ls.next.next.val,
+    ls.next.next.next.val,
+)
+</code></pre>
+</details>
+
+
+
    
 
