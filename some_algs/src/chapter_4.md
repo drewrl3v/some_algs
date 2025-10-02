@@ -27,3 +27,18 @@ This section discusses linked lists as the primitive data structure that
 can be utilized for a basick stack implementation. 
 
 `Note that a linked list is not the same thing as an array.`
+
+We may assume the following form for a List represented as nodes with pointers 
+to other nodes.
+
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+ls           = ListNode(0)
+ls.next      = ListNode(1)
+ls.next.next = ListNode(2)
+print(ls.next.next.val)
+```
