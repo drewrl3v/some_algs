@@ -159,14 +159,352 @@ def fact(n):
   else:
     return n * fact(n-1)
 
+print("=============")
+
+def iter_factorial(n: int) -> int:
+    res = 1
+    if n == 0: return res
+    for i in range(1, n+1):
+        res *= i
+    return res
+
+print(
+    iter_factorial(5),
+    iter_factorial(3),
+    iter_factorial(0),
+)
+
+print("=============")
+
+def rec_len(nums: List) -> int:
+    if nums == []:
+        return 0
+    else:
+        return 1 + rec_len(nums[1:])
+
+print(
+    rec_len([1,2,3])
+)
+
+print("=============")
+def rec_mul(x: int, y: int) -> int:
+    if y == 1:
+        return x
+    else:
+        return x + rec_mul(x, y-1)
+
+print(
+    rec_mul(3,4),
+    rec_mul(4,3),
+
+)
+
+print("=============")
+
+def iter_mul(x: int, y: int) -> int:
+    res = 0
+    for _ in range(y):
+        res += x
+    return res
+
+print(
+    iter_mul(3,4),
+    iter_mul(4,3),
+    iter_mul(4,1),
+    iter_mul(1,4),
+)
+
+print("=============")
+
+def rec_reverse(nums: List[int], left: int, right: int) -> None:
+    if left == right:
+        return
+    else:
+        nums[left], nums[right] = nums[right], nums[left]
+        return rec_reverse(nums, left+1, right-1)
+
+nums = [1,2,3]
+print(nums)
+rec_reverse(nums,0, len(nums)-1)
+print(nums)
+
+
+print("=============")
+def iter_reverse(nums: List[int]) -> None:
+    left, right = 0, len(nums)-1
+    while left < right:
+        nums[left], nums[right] = nums[right], nums[left]
+        left += 1
+        right -= 1
+    return
+
+nums = [1,2,3]
+print(nums)
+iter_reverse(nums)
+print(nums)
+
+
+print("=============")
+def rec_log2(number: int) -> int:
+    if number == 1:
+        return 0
+    else:
+        return 1 + rec_log2(number // 2)
+
+print(
+    rec_log2(100)
+)
+
+print("=============")
+def iter_log2(number: int) -> int:
+    res = 0
+    while number > 1:
+        res += 1
+        number = number // 2
+    return res
+
+print(
+    iter_log2(100)
+)
+
+print("=============")
+def rec_is_palindrome(word: str, left: int, right: int) -> bool:
+    if left == right:
+        return True
+    else:
+        current_check = (word[left] == word[right])
+        return current_check and rec_is_palindrome(word, left+1, right-1)
+
+word1 = "racecar"
+word2 = "a"
+word3 = "hello"
+print(
+    rec_is_palindrome(word1, 0, len(word1)-1),
+    rec_is_palindrome(word2, 0, len(word2)-1),
+    rec_is_palindrome(word3, 0, len(word3)-1),
+
+)
+
+print("=============")
+def iter_is_palindrome(word: str) -> bool:
+    left, right = 0, len(word)-1
+    while left < right:
+        if word[left] != word[right]:
+            return False
+        left += 1
+        right -=1
+    return True
+
+word1 = "racecar"
+word2 = "a"
+word3 = "hello"
+print(
+    iter_is_palindrome(word1),
+    iter_is_palindrome(word2),
+    iter_is_palindrome(word3),
+
+)
+
+
+print("====================")
+vowels = "aeiou"
+def more_vowels_than_consonants(s: str, cur_index: int, cons_count: int, vows_count: int) -> bool:
+    if cur_index == 0:
+        if s[cur_index] in vowels:
+            vows_count += 1
+        else:
+            cons_count += 1
+
+        return vows_count > cons_count
+    else:
+        if s[cur_index] in vowels:
+            vows_count += 1
+        else:
+            cons_count += 1
+
+        return more_vowels_than_consonants(s, cur_index-1, cons_count, vows_count)
+
+
+word1 = "hello"
+word2 = "see"
+print(
+    more_vowels_than_consonants(word1, cur_index = len(word1)-1, cons_count=0, vows_count=0),
+    more_vowels_than_consonants(word2, cur_index = len(word2)-1, cons_count=0, vows_count=0),
+)
+
+
+print("====================")
+vowels = "aeiou"
+def iter_more_vowels_than_consonants(s: str) -> bool:
+    vow_count, con_count = 0, 0
+    for char in s:
+        if char in vowels:
+            vow_count += 1
+        else:
+            con_count += 1
+    return vow_count > con_count
+
+
+word1 = "hello"
+word2 = "see"
+print(
+    iter_more_vowels_than_consonants(word1),
+    iter_more_vowels_than_consonants(word2),
+)
+
+print("==========================")
+def recur_even_before_odd(nums: List[int], f: int, s: int) -> None:
+    if s == len(nums):
+        return 
+    else:
+        if nums[f] % 2 == 1 and nums[s] % 2 == 0:
+            nums[f], nums[s] = nums[s], nums[f]
+            recur_even_before_odd(nums, f+1, s+1)
+        elif nums[f] % 2 == 1 and nums[s] % 2 == 1:
+            recur_even_before_odd(nums, f, s+1)
+        elif nums[f] % 2 == 0 and nums[s] % 2 == 1:
+            recur_even_before_odd(nums, f+1, s+1)
+        else: # both are even
+            recur_even_before_odd(nums, f+1, s+1)
+
+nums = [1,2,3]
+print(nums)
+recur_even_before_odd(nums, 0, 1)
+print(nums)
+
+nums = [1,3,2,4]
+print(nums)
+recur_even_before_odd(nums, 0, 1)
+print(nums)
+
+print("======================")
+def iter_even_before_odd(nums: List[int]) -> None:
+    f, s = 0, 1
+    while s < len(nums):
+        if nums[f] % 2 == 1 and nums[s] % 2 == 0:
+            nums[f], nums[s] = nums[s], nums[f]
+            f += 1
+            s += 1
+        elif nums[f] % 2 == 1 and nums[s] % 2 == 1:
+            s += 1
+        elif nums[f] % 2 == 0 and nums[s] % 2 == 1:
+            f += 1
+            s += 1
+        else: # both are even
+            f += 1
+            s += 1
+
+nums = [1,2,3]
+print(nums)
+iter_even_before_odd(nums)
+print(nums)
+
+nums = [1,3,2,4]
+print(nums)
+iter_even_before_odd(nums)
+print(nums)
 
 
 
+### RECURSION
+print("=====================")
+def rec_remove_from_stack(nums: List[int]) -> None:
+    if nums: # returns True if nums is not empty
+        nums.pop() # remove plate from top of stack
+        return rec_remove_from_stack(nums)
+
+nums = [3,4,5,1]
+print(nums)
+
+rec_remove_from_stack(nums)
+print(
+    nums
+)
+
+print("====================")
+def iter_remove_from_stack(nums: List[int]) -> None:
+    while nums:
+        nums.pop()
+
+nums = [3,4,5,1]
+print(nums)
+
+iter_remove_from_stack(nums)
+print(
+    nums
+)
 
 
+print("=============")
+def reverse_stack(nums: List[int]) -> List[int]:
+    tmp_stack = []
+    while nums:
+        x = nums.pop()
+        tmp_stack.append(x)
+    return tmp_stack
 
+nums = [1,2,3,4]
+print(nums)
+print(reverse_stack(nums))
+print(nums)
 
+print("==================")
+def is_valid(s: str) -> bool:
+    stack = []
+    for tok in s:
+        if tok == '(':
+            stack.append(tok)
+        if tok == ')':
+            if not stack: # if the stack is empty
+                return False
+            elif stack[-1] != '(': # check if the corresponding left parenthesis exists.
+                return False
+            else:
+                stack.pop()
+    return not stack # if the stack is empty, then the string was balanced.
 
+print(
+    is_valid('()'),
+    is_valid('())'),
+    )
+
+print("===============")
+def decimal_to_binary(n: int) -> str:
+    remainder_stack = []
+    while n > 0:
+        remainder = n % 2
+        remainder_stack.append(str(remainder))
+        n = n // 2
+
+    # the answer is in the remainder stack, but it's reversed
+    # so we should reverse the stack (an earlier problem in this section)
+    ans = []
+    while remainder_stack:
+        x = remainder_stack.pop()
+        ans.append(x)
+    
+    return ''.join(ans) # fancy way to concatenate all the characters in the ans list.
+
+print(
+    decimal_to_binary(42)
+)
+
+print("==============")
+def base_convert(dec_number: int, base: int) -> str:
+    digits = "0123456789ABCDEF"
+    remainder_stack = []
+    while dec_number > 0:
+        rem = dec_number % base
+        remainder_stack.append(rem)
+        dec_number = dec_number // base
+
+    ans = []
+    while remainder_stack:
+        ans.append(digits[remainder_stack.pop()])
+    return ''.join(ans)
+
+print(base_convert(42, 2))
+print(base_convert(42, 16))
 
 
 

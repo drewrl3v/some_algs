@@ -4,7 +4,7 @@
 - [Induction](./chapter_1.md)
 - [Recursion](./chapter_2.md)
 - [Stacks](./chapter_3.md)
-- [Chapter 4](./chapter_4.md)
+- [Linked Lists](./chapter_4.md)
 - [Implicit DFS](./chapter_5.md)
 - [Some Combinatorics](./chapter_6.md)
 - [Trees (DFS)](./chapter_7.md)

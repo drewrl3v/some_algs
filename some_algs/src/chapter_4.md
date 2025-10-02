@@ -1,4 +1,5 @@
-# Chapter 4
+# Linked Lists
 
+Recall the following:
 
-TODO
+1. Recursive functions are able to reference themselves.
