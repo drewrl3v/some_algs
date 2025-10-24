@@ -506,13 +506,134 @@ def base_convert(dec_number: int, base: int) -> str:
 print(base_convert(42, 2))
 print(base_convert(42, 16))
 
+print("==================")
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+ls           = ListNode(0)
+ls.next      = ListNode(1)
+ls.next.next = ListNode(2)
+print(ls.next.next.val)
 
 
+print("====================")
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
+#ls           = ListNode(0)
+#ls.next      = ListNode(1)
+#ls.next.next = ListNode(2)
+#print(ls.next.next.val)
 
+def search_list(L: ListNode, key: int) -> ListNode:
+    while L and L.val != key:
+        L = L.next
+    return L
 
+ls = ListNode(0)
+ls.next = ListNode(1)
+ls.next.next = ListNode(2)
 
+found = search_list(ls, 2)  
+print(found.val)
+
+print("====================")
+def insert_after(node: ListNode, new_node: ListNode) -> None:
+    new_node.next = node.next
+    node.next = new_node
+
+ls = ListNode(0)
+ls.next = ListNode(1)
+ls.next.next = ListNode(2)
+
+insert_after(ls.next, ListNode(4))
+print(
+    ls.val,
+    ls.next.val,
+    ls.next.next.val,
+    ls.next.next.next.val,
+)
+
+print("=================TREE==============")
+class Node:
+    def __init__(self, val=0, left=None, right=None):
+        self.val   = val
+        self.left  = left
+        self.right = right
+
+def insert_left(root: Node, new_node: Node) -> None:
+    while root.left: # Traverse the left-half of the tree.
+        root = root.left
+    root.left = new_node
+
+def insert_right(root: Node, new_node: Node) -> None:
+    while root.right: # Traverse the left-half of the tree.
+        root = root.left
+    root.left = new_node
+
+tree = Node(val = 0, left = Node(1), right = Node(2))
+print(tree.val)
+print(tree.left.val)
+print(tree.right.val)
+new_node = Node(val = 4)
+insert_left(tree, new_node)
+
+print("---")
+print(tree.val)
+print(tree.left.val)
+print(tree.left.left.val)
+print(tree.right.val)
+
+print("====================================")
+class Node:
+    def __init__(self, val='', left=None, right=None):
+        self.val   = val
+        self.left  = left
+        self.right = right
+
+def insert_left(root: Node, new_node: Node) -> None:
+    while root.left: # Traverse the left-half of the tree.
+        root = root.left
+    root.left = new_node
+
+def insert_right(root: Node, new_node: Node) -> None:
+    while root.right: # Traverse the left-half of the tree.
+        root = root.left
+    root.left = new_node
+
+def build_parse_tree(expr: str) -> Node:
+    '''
+    Input: a string for a mathematical expression
+    Returns: the root node of the expression parsed
+    '''
+    expr = list(expr)
+    print(expr)
+    tree = Node(val='')
+    p_stack = []
+    p_stack.append(tree)
+    cur_tree = tree
+
+    for char in expr:
+        if char == '(':
+            insert_left(cur_tree, Node(''))
+        elif char not in '+-*/)':
+            cur_tree.val = Node(char)
+            parent = p_stack.pop()
+            cur_tree = parent
+        elif char in '+-*/':
+            cur_tree.val = char
+            insert_right(cur_tree, Node(''))
+            p_stack.push(cur_tree)
+        elif char == ')':
+            p_stack.pop()
+
+    return expr
+print(build_parse_tree("(3 + (4 *5))"))
 
 
 
