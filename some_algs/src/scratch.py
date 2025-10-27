@@ -628,7 +628,8 @@ def build_parse_tree(expr: str) -> Node:
         elif char in '+-*/':
             cur_tree.val = char
             insert_right(cur_tree, Node(''))
-            p_stack.push(cur_tree)
+            p_stack.append(cur_tree)
+            cur_tree = cur_tree.right
         elif char == ')':
             p_stack.pop()
 

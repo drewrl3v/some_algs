@@ -23,7 +23,7 @@ def insert_left(root: Node, new_node: Node) -> None:
 ```python
 def insert_right(root: Node, new_node: Node) -> None:
     while root.right: # Traverse the left-half of the tree.
-        root = root.left
+        root = root.right
     root.left = new_node
 ```
 
