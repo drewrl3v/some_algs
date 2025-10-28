@@ -678,9 +678,26 @@ def preorder(tree: Node) -> None:
 
     return None
 
-
+print('preorder')
 preorder(expression_tree)
 
+
+def inorder(tree: Node) -> None:
+    if tree:
+        # first inorder traverse the left sub-tree
+        inorder(tree.left)
+
+        # now let's check the root node after inorder
+        # traversing the left sub-tree
+        print(tree.val)
+
+        # then inorder traverse the right sub-tree
+        inorder(tree.right)
+
+    return None
+
+print("inorder")
+inorder(expression_tree)
 
 
 
