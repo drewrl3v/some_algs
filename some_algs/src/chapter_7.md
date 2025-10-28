@@ -24,7 +24,7 @@ def insert_left(root: Node, new_node: Node) -> None:
 def insert_right(root: Node, new_node: Node) -> None:
     while root.right: # Traverse the left-half of the tree.
         root = root.right
-    root.left = new_node
+    root.right = new_node
 ```
 
 Some of the most basic applications of Binary Trees is to parse expressions.
@@ -67,14 +67,73 @@ order of evaluation.
 <summary>Solution</summary>
 
 <pre><code class="language-python">
-# TODO
+class Node:
+    def __init__(self, val='', left=None, right=None):
+        self.val   = val
+        self.left  = left
+        self.right = right
+
+def insert_left(root: Node, new_node: Node) -> None:
+    while root.left: # Traverse the left-half of the tree.
+        root = root.left
+    root.left = new_node
+
+def insert_right(root: Node, new_node: Node) -> None:
+    while root.right: # Traverse the left-half of the tree.
+        root = root.right
+    root.right = new_node
+
 def build_parse_tree(expr: str) -> Node:
     '''
     Input: a string for a mathematical expression
     Returns: the root node of the expression parsed
     '''
+
+    # TODO: Make sure to handle spaces
     expr = list(expr)
-    pass
+    tree = Node(val='')
+    p_stack = []
+    p_stack.append(tree)
+    cur_tree = tree
+
+    for char in expr:
+        if char == '(':
+            insert_left(cur_tree, Node(''))
+            p_stack.append(cur_tree)
+            cur_tree = cur_tree.left
+        elif char not in '+-*/)':
+            cur_tree.val = char
+            parent = p_stack.pop()
+            cur_tree = parent
+        elif char in '+-*/':
+            cur_tree.val = char
+            insert_right(cur_tree, Node(''))
+            p_stack.append(cur_tree)
+            cur_tree = cur_tree.right
+        elif char == ')':
+            p_stack.pop()
+
+    return tree
+
+
+
+'''
+This should build the following tree:
+
+(3+(4*5))
+
+      +
+   3    *
+      4   5
+'''
+
+expression_tree = build_parse_tree("(3+(4*5))")
+print(expression_tree.val)
+print(expression_tree.left.val)
+print(expression_tree.right.val)
+print(expression_tree.right.left.val)
+print(expression_tree.right.right.val)
+
 
 </code></pre>
 </details>
