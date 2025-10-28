@@ -700,6 +700,17 @@ print("inorder")
 inorder(expression_tree)
 
 
+def postorder(tree: Node) -> Node:
+    if tree:
+        postorder(tree.left)
+        postorder(tree.right)
+        print(tree.val)
+
+    return None
+
+print("postorder")
+postorder(expression_tree)
+
 
 
 

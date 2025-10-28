@@ -50,7 +50,7 @@ def preorder(tree: Node) -> None:
 ## Inorder Traversal
 
 In an inorder traversal, we recursively do an inorder traversal on the left sub-tree, 
-followed by a recursive preorder traversal of the right sub-tree
+followed by a recursive preorder traversal of the right sub-tree. Implement this!
 
 <details>
 <summary>Solution</summary>
@@ -73,7 +73,26 @@ def inorder(tree: Node) -> None:
 </code></pre>
 </details>
 
+## Postorder Traversal
 
+In a postorder traversal, we recursively do a postorder traversal on the 
+left sub-tree, visit the root node and the right sub-tree followed 
+by a visit to the root node. Implement this!
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+
+def postorder(tree: Node) -> Node:
+    if tree:
+        postorder(tree.left)
+        postorder(tree.right)
+        print(tree.val)
+
+    return None
+</code></pre>
+</details>
 
 
 
