@@ -559,6 +559,10 @@ print(
     ls.next.next.next.val,
 )
 
+
+
+
+
 print("=================TREE==============")
 class Node:
     def __init__(self, val=0, left=None, right=None):
@@ -574,7 +578,7 @@ def insert_left(root: Node, new_node: Node) -> None:
 def insert_right(root: Node, new_node: Node) -> None:
     while root.right: # Traverse the left-half of the tree.
         root = root.left
-    root.left = new_node
+    root.right = new_node
 
 tree = Node(val = 0, left = Node(1), right = Node(2))
 print(tree.val)
@@ -603,16 +607,17 @@ def insert_left(root: Node, new_node: Node) -> None:
 
 def insert_right(root: Node, new_node: Node) -> None:
     while root.right: # Traverse the left-half of the tree.
-        root = root.left
-    root.left = new_node
+        root = root.right
+    root.right = new_node
 
 def build_parse_tree(expr: str) -> Node:
     '''
     Input: a string for a mathematical expression
     Returns: the root node of the expression parsed
     '''
+
+    # TODO: Make sure to handle spaces
     expr = list(expr)
-    print(expr)
     tree = Node(val='')
     p_stack = []
     p_stack.append(tree)
@@ -621,8 +626,10 @@ def build_parse_tree(expr: str) -> Node:
     for char in expr:
         if char == '(':
             insert_left(cur_tree, Node(''))
+            p_stack.append(cur_tree)
+            cur_tree = cur_tree.left
         elif char not in '+-*/)':
-            cur_tree.val = Node(char)
+            cur_tree.val = char
             parent = p_stack.pop()
             cur_tree = parent
         elif char in '+-*/':
@@ -633,10 +640,46 @@ def build_parse_tree(expr: str) -> Node:
         elif char == ')':
             p_stack.pop()
 
-    return expr
-print(build_parse_tree("(3 + (4 *5))"))
+    return tree
 
 
+
+'''
+This should build the following tree:
+
+(3+(4*5))
+
+      +
+   3    *
+      4   5
+'''
+
+expression_tree = build_parse_tree("(3+(4*5))")
+print(expression_tree.val)
+print(expression_tree.left.val)
+print(expression_tree.right.val)
+print(expression_tree.right.left.val)
+print(expression_tree.right.right.val)
+
+
+print("Tree Traversal ========================")
+
+def preorder(tree: Node) -> None:
+    if tree:
+        # visit the root node first and do something with it
+        # in our case let's print the value of the node
+        print(tree.val)
+
+        # then preorder traverse the left sub-tree
+        preorder(tree.left)
+
+        # then preorder traverse the right sub-tree
+        preorder(tree.right)
+
+    return None
+
+
+preorder(expression_tree)
 
 
 

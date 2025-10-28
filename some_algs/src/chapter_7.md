@@ -11,6 +11,49 @@ class Node:
         self.right = right
 ```
 
+
+# Tree traversals
+
+## Preorder Traversal
+
+In a preorder traversal, we visit the root node first, then recursively
+do a preorder traversal of the left subtree followed by a recursive preorder 
+traversal of the right tree. Implement this!
+
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+'''
+Note: that this is a direct implmentation of a DFS.
+Compare to the subsets problems to see the similarity!
+'''
+
+def preorder(tree: Node) -> None:
+    if tree:
+        # visit the root node first and do something with it
+        # in our case let's print the value of the node
+        print(tree.val)
+
+        # then preorder traverse the left sub-tree
+        preorder(tree.left)
+
+        # then preorder traverse the right sub-tree
+        preorder(tree.right)
+
+    return None
+</code></pre>
+</details>
+
+
+
+
+
+
+
+# Tree Manipulations
+
 Some of the most basic operations on trees are to insert new nodes:
 
 ```python
@@ -133,9 +176,9 @@ print(expression_tree.left.val)
 print(expression_tree.right.val)
 print(expression_tree.right.left.val)
 print(expression_tree.right.right.val)
-
-
 </code></pre>
 </details>
 
+## Problem 2 
 
+Evaluate a parse tree.
