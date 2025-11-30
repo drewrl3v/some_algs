@@ -8,7 +8,7 @@
 - [Implicit DFS](./chapter_5.md)
 - [Some Combinatorics](./chapter_6.md)
 - [Trees (DFS)](./chapter_7.md)
-- [Graphs (DFS)](./chapter_8.md)
+- [Introduction to Graphs](./chapter_8.md)
 - [BFS](./chapter_9.md)
 - [Graphs (BFS)](./chapter_10.md)
 - [Dynamic Programming](./chapter_11.md)
