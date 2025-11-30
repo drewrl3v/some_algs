@@ -1,4 +1,4 @@
-52# some_algs
+# some_algs
 
 
 ## Note: mdbook and mdbook-katex versions needed to run this book:
