@@ -14,7 +14,7 @@
 - [Dynamic Programming](./chapter_11.md)
 - [Greedy](./chapter_12.md)
 - [Union Find - Disjoint Sets](./chapter_14.md)
-- [Dijkstra, Prim, Kruskal, Boruvka, Bellman FOrd](./chapter_15.md)
+- [Dijkstra, Prim, Kruskal, Boruvka, Bellman Ford](./chapter_15.md)
 
 
 
