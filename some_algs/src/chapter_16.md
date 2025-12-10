@@ -28,5 +28,28 @@ print(cumulative_sum(nums))
 </details>
 
 
+## Prefix Sums:
+
+Given an array of numbers, `nums`, and an index `i`, return the cummulative 
+sum of the array up to (and including) `nums[i]`.
+
+<details>
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def prefix_sum(nums: List[float], i: int) -> List[float]:
+    cum_sum = 0
+    for j in range(len(nums)):
+        cum_sum += nums[j]
+        if j == i:
+            break
+    return cum_sum
+
+nums = [0.3, 4, -2]
+print(prefix_sum(nums, 1))
+</code></pre>
+</details>
+
+
 
 

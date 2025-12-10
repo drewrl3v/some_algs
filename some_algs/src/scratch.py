@@ -724,6 +724,18 @@ def cumulative_sum(nums: List[float]) -> List[float]:
     return res
 print(cumulative_sum(nums))
 
+print("--------------")
+def prefix_sum(nums: List[float], i: int) -> List[float]:
+    cum_sum = 0
+    for j in range(len(nums)):
+        cum_sum += nums[j]
+        if j == i:
+            break
+    return cum_sum
+
+nums = [0.3, 4, -2]
+print(prefix_sum(nums, 1))
+
 
 
 
