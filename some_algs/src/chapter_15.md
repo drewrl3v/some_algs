@@ -1,1 +1,1 @@
-# Dijkstra, Prim, Kruskal, Boruvka, Bellman FOrd
+# Dijkstra, Prim, Kruskal, Boruvka, Bellman Ford
