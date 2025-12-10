@@ -713,6 +713,19 @@ postorder(expression_tree)
 
 
 
+print("====================OPTIMIZATION==================")
+nums = [0.3, 4, -2]
+def cumulative_sum(nums: List[float]) -> List[float]:
+    cum_sum = 0
+    res = [0] * len(nums)
+    for i in range(len(nums)):
+        cum_sum += nums[i]
+        res[i] = cum_sum
+    return res
+print(cumulative_sum(nums))
+
+
+
 
 
 

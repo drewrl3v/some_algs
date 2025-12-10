@@ -15,6 +15,7 @@
 - [Greedy](./chapter_12.md)
 - [Union Find - Disjoint Sets](./chapter_14.md)
 - [Dijkstra, Prim, Kruskal, Boruvka, Bellman Ford](./chapter_15.md)
+- [Optimization](./chapter_16.md)
 
 
 
