@@ -2,7 +2,7 @@
 
 ## Install Prerequisites
 
-    You need to have **Rust** installed. It comes with `cargo`, which is used to install `mdBook` and plugins.
+You need to have **Rust** installed. It comes with `cargo`, which is used to install `mdBook` and plugins.
 
 MacOS and Linux Users:
 
