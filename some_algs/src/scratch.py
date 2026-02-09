@@ -81,14 +81,14 @@ def count_paths(grid: List[List[int]]) -> int:
             return 1
 
        
-        visit.add((r,c))
+        path.add((r,c))
         count = 0
         count += dfs(r+1, c)
         count += dfs(r-1, c)
         count += dfs(r, c+1)
         count += dfs(r, c-1)
         
-        visit.remove((r,c))
+        path.remove((r,c))
         return count
 
     return dfs(0,0)
@@ -735,6 +735,40 @@ def prefix_sum(nums: List[float], i: int) -> List[float]:
 
 nums = [0.3, 4, -2]
 print(prefix_sum(nums, 1))
+
+print("================GRAPH BFS=====================")
+graph = {
+    1: [2,3],
+    2: [1,3,4,5],
+    3: [1,2,5,7,8],
+    4: [2,5],
+    5: [2,3,4,6],
+    6: [5],
+    7: [3,8],
+    8: [3,7],
+}
+
+from collections import defaultdict
+def bfs_no_queue(s, graph):
+    discovered = set()
+    discovered.add(s)
+    current_layer = [s]
+
+    while current_layer:
+        print(current_layer)
+        next_layer = []
+        for node in current_layer:
+            for next_node in graph[node]:
+                if next_node not in discovered:
+                    discovered.add(next_node)
+                    next_layer.append(next_node)
+        current_layer = next_layer
+
+bfs_no_queue(1, graph)
+
+
+
+
 
 
 

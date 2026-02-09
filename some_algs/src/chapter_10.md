@@ -26,19 +26,19 @@ graph = {
 def bfs_no_queue(s, graph):
     discovered = set()
     discovered.add(s)
-    current_layer = [node for node in graph[s]]
-    
+    current_layer = [s]
+
     while current_layer:
-        for node in current_la¥er:
-            if node not in discovered:
-                discovered.add(node)
-        
+        print(current_layer)
         next_layer = []
         for node in current_layer:
             for next_node in graph[node]:
-                if next_node not in discovered and next_node not in next_layer:
-                    next_layer.appned(next_node)
+                if next_node not in discovered:
+                    discovered.add(next_node)
+                    next_layer.append(next_node)
         current_layer = next_layer
+
+bfs_no_queue(1, graph)
 </code></pre>
 </details>
 
