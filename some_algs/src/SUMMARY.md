@@ -11,6 +11,7 @@
 - [Introduction to Graphs](./chapter_8.md)
 - [BFS](./chapter_9.md)
 - [Graphs (BFS)](./chapter_10.md)
+- [Graphs (DFS)](./chapter_10.5.md)
 - [Dynamic Programming](./chapter_11.md)
 - [Greedy](./chapter_12.md)
 - [Union Find - Disjoint Sets](./chapter_14.md)
