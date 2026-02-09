@@ -790,10 +790,31 @@ def dfs(s, graph):
 
 dfs(1, graph)
 
+print("==============Graphs DFS Iterative===============")
+graph = {
+    1: [2,3],
+    2: [1,3,4,5],
+    3: [1,2,5,7,8],
+    4: [2,5],
+    5: [2,3,4,6],
+    6: [5],
+    7: [3,8],
+    8: [3,7],
+}
 
+def dfs(s, graph):
+    seen = set()
+    stack = [s]
+    while stack:
+        node = stack.pop()
+        if node not in seen:
+            print(node)
+            seen.add(node)
+            for neighbor in reversed(graph[node]): # reversed to match the previous version
+                if neighbor not in seen:
+                    stack.append(neighbor)
 
-
-
+dfs(1, graph)
 
 
 
