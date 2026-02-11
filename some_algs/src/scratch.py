@@ -815,7 +815,23 @@ def dfs(s, graph):
                     stack.append(neighbor)
 
 dfs(1, graph)
+print("==========Greedy==============")
+intervals = [[1,2],[2,4],[1,4]]
+def max_non_overlapping(intervals: List[List[int]]) -> int:
+    # First we sort the intervals by end times
+    intervals.sort(key = lambda x : x[1])
+    count = 1
+    cur_end = intervals[0][1]
+    for i, (start_i, end_i) in enumerate(intervals):
+        if i == 0:
+            continue
+        else:
+            if start_i >= cur_end:
+                cur_end = end_i
+                count += 1
+    return count
 
+print(max_non_overlapping(intervals))
 
 
 
