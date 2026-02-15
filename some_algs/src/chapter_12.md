@@ -1,5 +1,33 @@
 # Greedy
 
+## Making Change (Min Coins)
+
+We have an unlimited supply of coins of the following denonminations: 1,2,5,10,20,50,100,1000.
+Your task is to find the minimum number of coins that make up a bill of a given amount. 
+For example you're handed a 101 bill, then you should return two coins of the following denominations:
+`[1,100]`, two coins in total.
+
+<details>
+<summary>Solution</summary>
+
+Intuitively to start we should pick the coin of largest denomination. If we made change we're done.
+Otherwise, if we can still pick more coins of this amount, then we should. If we no longer can and we 
+still haven't made change we should move on to the next largest coin.
+
+`Note:` A common theme in greedy algorithms is we pick the largest or smallest value object/thing/move/strategy, 
+so we can either maximize or minimize the number of next moves/objects/things/choices/strategies, ect.
+
+
+<pre><code class="language-python">
+def make_change(coins=[1,2,5,10,20,50,100,1000]: List[int], amount: int) -> List[int]:
+    pass
+</code></pre>
+</details>
+
+
+
+
+
 ## Non-operlapping Intervals
 
 Given an array of intervals `intervals` where `intervals[i] = [start_i, end_i]`, determine the 
