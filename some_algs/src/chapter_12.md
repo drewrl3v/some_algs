@@ -10,12 +10,22 @@ For example you're handed a 101 bill, then you should return two coins of the fo
 <details>
 <summary>Solution</summary>
 
+
 Intuitively to start we should pick the coin of largest denomination. If we made change we're done.
 Otherwise, if we can still pick more coins of this amount, then we should. If we no longer can and we 
 still haven't made change we should move on to the next largest coin.
 
 `Note:` A common theme in greedy algorithms is we pick the largest or smallest value object/thing/move/strategy, 
 so we can either maximize or minimize the number of next moves/objects/things/choices/strategies, ect.
+
+`Warning: ` It just so happens we can solve this problem using a greedy strategy. This is because we 
+satisify as so-called `exchangability` property. At the moment we won't explain what this is until 
+later. But for coin change problems you know that the setup is exchangable if any higher denomniaion 
+coin is divisible by some lower denomination coins.
+
+So for example if we instead had the following denomniations: 1,3,4 and are then asked to make change for 
+a 6 bill, then the greedy strategy would give use the answer: `[4,1,1]` which uses three coins, but the 
+optimal solution is: `[3,3]` only using two coins. With this out of the way, let's answer the problem:
 
 
 <pre><code class="language-python">
