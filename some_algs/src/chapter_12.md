@@ -20,11 +20,11 @@ so we can either maximize or minimize the number of next moves/objects/things/ch
 
 `Warning: ` It just so happens we can solve this problem using a greedy strategy. This is because we 
 satisify as so-called `exchangability` property. At the moment we won't explain what this is until 
-later. But for coin change problems you know that the setup is exchangable if any higher denomniaion 
-coin is divisible by some lower denomination coins.
+later. But for coin change problems, the setup is exchangable if each coin is divisible by the previous one.
+(This is a sufficient but not necessary condition.)
 
 So for example if we instead had the following denomniations: 1,3,4 and are then asked to make change for 
-a 6 bill, then the greedy strategy would give use the answer: `[4,1,1]` which uses three coins, but the 
+a 6 bill, then the greedy strategy would give us the answer: `[4,1,1]` which uses three coins. But the 
 optimal solution is: `[3,3]` only using two coins. With this out of the way, let's answer the problem:
 
 
@@ -48,14 +48,11 @@ To solve thie problem let's condier the following intuition: If we were choosing
 to construct a non-overlapping subset of intervals, then we'd like the first interval to finish
 as early as possible. 
 
-Because this leaves us with the largest number of intervals to then choose from. This is the 
-essence of a greedy strategy. We typically want to choose the largest quantity first to maximize 
-an outcome (alternatively choose the smallest quantity to minimze a cost).
+This leaves us with the largest number of intervals to then choose from. Since we eant to determine 
+the largest number of intervals, the choice of first interval that maximizine the number of choices 
+we have left is optimal.
 
-Also usually to take full advantage of a greedy strategy is that we need to structure the problem 
-to utilize choosing the next largets (or next smallest) choice/element/thing/ect.
-
-In our case we want the first choice to be the interval with the smallest end time, this mazimizes 
+To reiterate, we want the first choice to be the interval with the smallest end time, this mazimizes 
 the numebr of next choices we can look at. The next simplest thing we can do is then choose the next 
 interval in our list (ordered by end times) that has a start time bigger than the current end time 
 of our itnerval.
