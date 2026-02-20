@@ -80,3 +80,18 @@ def max_non_overlapping(intervals: List[List[int]]) -> int:
 </details>
 
 
+## Jump Frog
+
+Given an array of nonnegative integers, a frog is initially at the first index of the array.
+Each element in the array represents the maximum jump length at that position. Determine 
+if the frog can reach the last index.
+
+
+
+
+
+
+
+
+
+
