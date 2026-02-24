@@ -87,6 +87,24 @@ Each element in the array represents the maximum jump length at that position. D
 if the frog can reach the last index.
 
 
+<details>
+TODO: Explain the heuristics for determining the naive algorithm later.
+
+<summary>Solution</summary>
+
+<pre><code class="language-python">
+def jump_frog(nums: List[int]) -> bool:
+    n = len(nums)
+    reachable = [False] * n
+    reachable[0] = True
+    for i in range(n-1):
+        if not reachable[i]:
+            continue
+    for j in range(i, min(i + nums[i] + 1, n)):
+        reachable[j] = True
+    return reachable[-1]
+</code></pre>
+</details>
 
 
 
