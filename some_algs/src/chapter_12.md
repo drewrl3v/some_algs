@@ -21,7 +21,8 @@ so we can either maximize or minimize the number of next moves/objects/things/ch
 `Warning: ` It just so happens we can solve this problem using a greedy strategy. This is because we 
 satisify as so-called `exchangability` property. At the moment we won't explain what this is until 
 later. But for coin change problems, the setup is exchangable if each coin is divisible by the previous one.
-(This is a sufficient but not necessary condition.)
+(This is a sufficient but not necessary condition. For example coins [1,2,5,10] can still be solved with a 
+greedy strategy even though 2 does not divide 5.)
 
 So for example if we instead had the following denomniations: 1,3,4 and are then asked to make change for 
 a 6 bill, then the greedy strategy would give us the answer: `[4,1,1]` which uses three coins. But the 
@@ -29,8 +30,18 @@ optimal solution is: `[3,3]` only using two coins. With this out of the way, let
 
 
 <pre><code class="language-python">
-def make_change(coins=[1,2,5,10,20,50,100,1000]: List[int], amount: int) -> List[int]:
-    pass
+def make_change(coins: List[int], amount: int) -> List[int]:
+    num_coins = 0
+    coins.sort()
+    max_coin_index = len(coins) - 1
+    while amount:
+        while True:
+            if coins[max_coin_index] > amount:
+                max_coin_inex -= 1
+            else:
+                break
+        amount -= coins[max_coin_index]
+        num_coins += 1
 </code></pre>
 </details>
 
