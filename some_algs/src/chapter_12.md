@@ -115,7 +115,29 @@ def jump_frog(nums: List[int]) -> bool:
         reachable[j] = True
     return reachable[-1]
 </code></pre>
-</details>
+
+
+<details>
+TODO: Explain the heuristics for determining the efficient algorithm later.
+
+<summary>Alternative Solution</summary>
+
+<pre><code class="language-python">
+
+def jump_frog(nums: List[int]) -> bool:
+    max_reachable = 0
+    for i in range(len(nums)):
+        # if it's impossible to reach the current index,
+        # the it's not possible to reach the last index
+        if i > max_reachable:
+            return False
+        max_reachable = max(max_reachable, i + nums[i])
+
+        if max_reachable >= len(nums) - 1:
+            return True
+</code></pre>
+
+
 
 
 
