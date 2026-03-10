@@ -9,6 +9,8 @@ The key here is that we're only allowed to use multiply for single digit numbers
 <details>
 <summary>Solution</summary>
 
+## Grade School Multiplication
+
 <pre><code class="language-python">
 
 # TODO: Just my scratch work, all needs to be cleaned and corrected later.
@@ -77,4 +79,37 @@ def many_digit_multiply(x: List[int], y: List[int]) -> List[int]:
   return res                                                                 
 </code></pre>
 </details>
+
+
+## Longest Consecutive Sqeuence
+
+Given an array `nums`, return the length of the longest consecutive sequence of elements that can be formed.
+
+<details>
+
+<pre><code class="language-python">
+
+def longest_consecutive(nums: List[int]) -> int:
+    '''
+    Naive sorting solution.
+    '''
+    if not nums: return 0
+    nums = sorted(list(set(nums)))
+    res_max = 1
+    cur_max = 1
+    i, j = 0, 1
+    while j != len(nums):
+        if nums[i] + 1 == nums[j]:
+            cur_max += 1
+            res_max = max(res_max, cur_max)
+            i += 1
+            j += 1
+        else:
+            cur_max = 1
+            i += 1
+            j += 1
+    return res_max
+</code></pre>
+</details>
+
 
