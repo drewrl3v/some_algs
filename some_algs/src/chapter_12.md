@@ -115,6 +115,9 @@ def jump_frog(nums: List[int]) -> bool:
         reachable[j] = True
     return reachable[-1]
 </code></pre>
+</details>
+
+
 
 
 <details>
@@ -136,6 +139,46 @@ def jump_frog(nums: List[int]) -> bool:
         if max_reachable >= len(nums) - 1:
             return True
 </code></pre>
+</details>
+
+
+
+## Set Covering (Radio Towers)
+
+We want to play a song to a set of states in the U.S, denoted `states_needed`. 
+Each radio tower only covers a subset of `states_needed`.
+Also there may be some overlap between some towers. 
+
+Let's say the cost to use each radio tower is the same, and we want to 
+minimize the total cost as much as possible. Given a list of towers and their 
+coverage `stations` determine which towers covers the `states_needed` while 
+minimizing cost as much as possible
+
+
+<details>
+
+<summary>Solution</summary>
+
+Thankfully, the greedy approach is straight-forward: Pitck the station that 
+covers the most states that hasn't been covered yet. Then repeat this procedure 
+until all states are covered.
+
+<pre><code class="language-python">
+states_needed = set(["mt", "wa", "or", "id", "nv", "ut", "ca", "az"])
+stations = {}
+stations["1"] = set(["id", "nv", "ut"])
+stations["2"] = set(["wa", "id", "mt"])
+stations["3"] = set(["or", "nv", "ca"])
+stations["4"] = set(["nv", "ut"])
+stations["5"] = set(["ca", "az"])
+
+
+
+
+
+</code></pre>
+</details>
+
 
 
 
