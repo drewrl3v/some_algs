@@ -185,9 +185,6 @@ def station_covering(states_needed: Set[str], stations: Dict[str]) -> Set[str]:
         states_needed -= states_covered
         final_stations.add(best_station)
     return final_stations
-
-
-
 </code></pre>
 </details>
 
