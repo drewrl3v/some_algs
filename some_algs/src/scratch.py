@@ -836,6 +836,33 @@ print(max_non_overlapping(intervals))
 
 
 
+print("=============Stations============")
+from typing import Set, Dict
+states_needed = set(["mt", "wa", "or", "id", "nv", "ut", "ca", "az"])
+stations = {}
+stations["1"] = set(["id", "nv", "ut"])
+stations["2"] = set(["wa", "id", "mt"])
+stations["3"] = set(["or", "nv", "ca"])
+stations["4"] = set(["nv", "ut"])
+stations["5"] = set(["ca", "az"])
+
+def station_covering(states_needed: Set[str], stations: Dict[str]) -> Set[str]:
+    final_stations = set()
+    while states_needed:
+        best_station = None
+        states_covered = set()
+        for station, states_for_station in stations.items():
+            covered = states_needed & states_for_station # Set intersection
+            if len(covered) > len(states_covered):
+                best_station = station
+                states_covered = covered
+        states_needed -= states_covered
+        final_stations.add(best_station)
+    return final_stations
+
+print(station_covering(states_needed, stations))
+
+
 
 
 
